@@ -28,6 +28,7 @@ namespace TodoList.Api.Controllers
         public async Task<IActionResult> Post([FromBody]CreateTaskItemCommand command)
         {
             var commandResult = await _mediator.Send(command);
+
         }
     }
 }
