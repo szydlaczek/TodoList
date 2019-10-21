@@ -17,7 +17,7 @@ namespace TodoList.Application.TaskItems.Commands.CreateTaskItem
         }
         public async Task<Response> Handle(CreateTaskItemCommand request, CancellationToken cancellationToken)
         {
-            var taskItem = request.Build();
+            var taskItem = request.BuildTaskItem();
             _context.TaskItems.Add(taskItem);
 
             await _context.SaveChangesAsync();

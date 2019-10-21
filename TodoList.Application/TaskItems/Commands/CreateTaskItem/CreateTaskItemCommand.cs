@@ -40,7 +40,7 @@ namespace TodoList.Application.TaskItems.Commands.CreateTaskItem
 
         public Priority Priority { get; protected set; }
 
-        public TaskItem Build()
+        public TaskItem BuildTaskItem()
         {
             return new TaskItem(Guid.NewGuid(), Topic, Description, Category, EndDate, Priority);
         }
