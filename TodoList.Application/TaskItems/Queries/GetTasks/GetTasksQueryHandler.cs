@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using TodoList.Application.Helpers;
 using TodoList.Application.TaskItems.ModelsPreview;
 using TodoList.Persistence;
+using TodoList.Application.TaskItems.Queries.Helpers;
 
 namespace TodoList.Application.TaskItems.Queries.GetTasks
 {
@@ -22,9 +23,10 @@ namespace TodoList.Application.TaskItems.Queries.GetTasks
         }
         public async Task<Response> Handle(GetTasksQuery request, CancellationToken cancellationToken)
         {
-            var tasks = await _context.TaskItems.ToListAsync();
+            var tasks = await _context.TaskItems.AsQueryable().Filter(request).ToListAsync();            
+
             var result = tasks.AsQueryable().Select(TaskItemPreview.Projection).ToList();
-            return new Response();
+            return new Response(result);
         }
     }
 }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using TodoList.Application.TaskItems.Commands.CreateTaskItem;
 using TodoList.Application.TaskItems.Queries.GetTasks;
 
 namespace TodoList.Api.Controllers
@@ -20,11 +18,16 @@ namespace TodoList.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery]GetTasksQuery q)
+        public async Task<IActionResult> Get([FromQuery]GetTasksQuery query)
+        {            
+            var queryResult = await _mediator.Send(query);
+            return Ok(queryResult.Data);
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]CreateTaskItemCommand command)
         {
-            var query = new GetTasksQuery();
-            await _mediator.Send(query);
-            return Ok();
-        }        
+            var commandResult = await _mediator.Send(command);
+        }
     }
 }
