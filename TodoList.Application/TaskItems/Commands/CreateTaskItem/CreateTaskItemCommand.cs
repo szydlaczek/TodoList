@@ -9,7 +9,10 @@ namespace TodoList.Application.TaskItems.Commands.CreateTaskItem
     public class CreateTaskItemCommand : IRequest<Response>
     {
         [JsonConstructor]
-        public CreateTaskItemCommand(string name, string surname, string category, string email, string topic, string description, DateTime endDate, Priority priority)
+        public CreateTaskItemCommand(string name, string surname, 
+            string category, string email,
+            string topic, string description,
+            DateTime endDate, Priority priority)
         {
             Name = name;
             Surname = surname;
@@ -22,12 +25,24 @@ namespace TodoList.Application.TaskItems.Commands.CreateTaskItem
         }
 
         public string Name { get; protected set; }
+
         public string Surname { get; protected set; }
+
         public string Category { get; protected set; }
+
         public string Email { get; protected set; }
+
         public string Topic { get; protected set; }
+
         public string Description { get; protected set; }
+
         public DateTime EndDate { get; protected set; }
+
         public Priority Priority { get; protected set; }
+
+        public TaskItem Build()
+        {
+            return new TaskItem(Guid.NewGuid(), Topic, Description, Category, EndDate, Priority);
+        }
     }
 }

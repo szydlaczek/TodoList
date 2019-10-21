@@ -22,10 +22,15 @@ namespace TodoList.Domain.Entities
         }
 
         public Guid Id { get; protected set; }
+
         public string Topic { get; protected set; }
+
         public string Description { get; protected set; }
+
         public string Category { get; protected set; }
+
         public DateTime EndDate { get; protected set; }
+
         public Priority Priority { get; protected set; }
     }
 }

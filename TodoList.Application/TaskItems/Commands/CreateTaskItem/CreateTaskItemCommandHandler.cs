@@ -10,13 +10,19 @@ namespace TodoList.Application.TaskItems.Commands.CreateTaskItem
     public class CreateTaskItemCommandHandler : IRequestHandler<CreateTaskItemCommand, Response>
     {
         private readonly ApplicationDbContext _context;
+
         public CreateTaskItemCommandHandler(ApplicationDbContext context)
         {
             _context = context;
         }
-        public Task<Response> Handle(CreateTaskItemCommand request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(CreateTaskItemCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var taskItem = request.Build();
+            _context.TaskItems.Add(taskItem);
+
+            await _context.SaveChangesAsync();
+
+            return new Response(taskItem);
         }
     }
 }
