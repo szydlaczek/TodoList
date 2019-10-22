@@ -22,13 +22,23 @@ namespace TodoList.IntegrationTests
             });
         }
 
-        [Fact]
-        public async Task Call_GetTasks_Should_Return_TaskList()
+        [Theory]
+        [InlineData("", 3)]
+        [InlineData("Unit", 1)]
+        [InlineData("test", 2)]
+        public async Task Call_GetTasks_Should_Return_TaskList(string searchText, int expectedResultCount)
         {
-            var response = await _client.GetAsync("/Tasks");
+            string url = "/Tasks";
+
+            if (!string.IsNullOrEmpty(searchText))
+                url = $"/Tasks?Temat={searchText}";
+
+            var response = await _client.GetAsync(url);
             var value = await response.Content.ReadAsStringAsync();
             var tasks = JsonConvert.DeserializeObject<GetTasksResponse>(value);
+            
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            Assert.Equal(expectedResultCount, tasks.Data.Count);
         }
 
     }

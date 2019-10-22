@@ -10,8 +10,8 @@ using TodoList.Persistence;
 namespace TodoList.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191022073944_TaskStatus")]
-    partial class TaskStatus
+    [Migration("20191022185008_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,13 +32,23 @@ namespace TodoList.Persistence.Migrations
                     b.Property<string>("Description")
                         .IsRequired();
 
-                    b.Property<DateTime>("EndDate");
+                    b.Property<string>("Email");
+
+                    b.Property<DateTime?>("EndDate");
+
+                    b.Property<DateTime>("ExpirationDate");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Name");
 
                     b.Property<int>("Priority");
 
+                    b.Property<DateTime?>("StartDate");
+
                     b.Property<int>("Status");
 
-                    b.Property<string>("Topic")
+                    b.Property<string>("Title")
                         .IsRequired();
 
                     b.HasKey("Id");

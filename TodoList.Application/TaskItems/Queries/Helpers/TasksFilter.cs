@@ -14,7 +14,7 @@ namespace TodoList.Application.TaskItems.Queries.Helpers
             if (query.Temat != null)
             {
                 return data
-                    .Where(d => d.Topic.Contains(query.Temat, StringComparison.OrdinalIgnoreCase));
+                    .Where(d => d.Title.Contains(query.Temat, StringComparison.OrdinalIgnoreCase));
             }
             return data;
         }

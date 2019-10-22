@@ -20,10 +20,10 @@ namespace TodoList.Application.TaskItems.ModelsPreview
                 return p => new TaskItemPreview
                 {
                     Id = p.Id,
-                    Topic = p.Topic,
+                    Topic = p.Title,
                     Category = p.Category,
                     Description = p.Description,
-                    EndDate = p.EndDate.ToString("yyyy-MM-dd"),
+                    EndDate = p.ExpirationDate.ToString("yyyy-MM-dd"),
                     Priority = p.Priority
                 };
             }

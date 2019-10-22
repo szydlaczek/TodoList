@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using System.Reflection;
 using TodoList.Api.Core;
 using TodoList.Application.TaskItems.Commands.CreateTaskItem;
@@ -32,6 +33,12 @@ namespace TodoList.Api
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateTaskItemCommandValidator>());
+                //.AddJsonOptions(opt =>
+                //{
+                //    opt.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
+                //    opt.SerializerSettings.DateFormatString = "yyyy-MM-dd";
+                //});
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

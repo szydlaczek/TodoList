@@ -30,13 +30,23 @@ namespace TodoList.Persistence.Migrations
                     b.Property<string>("Description")
                         .IsRequired();
 
-                    b.Property<DateTime>("EndDate");
+                    b.Property<string>("Email");
+
+                    b.Property<DateTime?>("EndDate");
+
+                    b.Property<DateTime>("ExpirationDate");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Name");
 
                     b.Property<int>("Priority");
 
+                    b.Property<DateTime?>("StartDate");
+
                     b.Property<int>("Status");
 
-                    b.Property<string>("Topic")
+                    b.Property<string>("Title")
                         .IsRequired();
 
                     b.HasKey("Id");

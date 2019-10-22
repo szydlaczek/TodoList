@@ -12,9 +12,9 @@ namespace TodoList.Persistence.Configurations
 
             builder.Property(p => p.Priority)
                 .IsRequired();
-            builder.Property(p => p.Topic)
+            builder.Property(p => p.Title)
                 .IsRequired();
-            builder.Property(p => p.EndDate)
+            builder.Property(p => p.ExpirationDate)
                 .IsRequired();
             builder.Property(p => p.Description)
                 .IsRequired();
