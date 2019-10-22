@@ -11,6 +11,8 @@ namespace TodoList.Application.TaskItems.Queries.Helpers
     {
         public static IQueryable<TaskItem> Filter(this IQueryable<TaskItem> data, GetTasksQuery query)
         {
+            data = data.Where(s => s.Status != TaskItemStatus.Ended);
+
             if (query.Temat != null)
             {
                 return data

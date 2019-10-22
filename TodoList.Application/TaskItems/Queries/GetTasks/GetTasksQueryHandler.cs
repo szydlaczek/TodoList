@@ -1,15 +1,12 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TodoList.Application.Helpers;
 using TodoList.Application.TaskItems.ModelsPreview;
-using TodoList.Persistence;
 using TodoList.Application.TaskItems.Queries.Helpers;
+using TodoList.Persistence;
 
 namespace TodoList.Application.TaskItems.Queries.GetTasks
 {
@@ -26,7 +23,8 @@ namespace TodoList.Application.TaskItems.Queries.GetTasks
             var tasks = await _context.TaskItems.AsQueryable().Filter(request).ToListAsync();            
 
             var result = tasks.AsQueryable().Select(TaskItemPreview.Projection).ToList();
-            return new Response(result);
+
+            return SuccessResponse.Create(result);
         }
     }
 }

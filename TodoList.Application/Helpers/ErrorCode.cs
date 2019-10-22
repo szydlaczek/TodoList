@@ -4,8 +4,9 @@ using System.Text;
 
 namespace TodoList.Application.Helpers
 {
-    public abstract class Response
+    public enum ErrorCode
     {
-        
+        StartTaskError = 0,
+        EndTaskError = 1
     }
 }

@@ -4,8 +4,5 @@ using System.Text;
 
 namespace TodoList.Application.Helpers
 {
-    public abstract class Response
-    {
-        
-    }
+    
 }

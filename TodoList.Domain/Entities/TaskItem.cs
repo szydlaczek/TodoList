@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TodoList.Domain.Exceptions;
 
 namespace TodoList.Domain.Entities
 {
@@ -14,6 +15,7 @@ namespace TodoList.Domain.Entities
             Category = category;
             EndDate = endDate;
             Priority = priority;
+            Status = TaskItemStatus.Wating;
         }
 
         protected TaskItem()
@@ -32,5 +34,21 @@ namespace TodoList.Domain.Entities
         public DateTime EndDate { get; protected set; }
 
         public Priority Priority { get; protected set; }
+
+        public TaskItemStatus Status { get; protected set; }
+
+        public void StartTask()
+        {
+            if (Status != TaskItemStatus.Wating)
+                throw new TodoListException("Cannot start task");
+            Status = TaskItemStatus.Started;
+        }
+
+        public void StopTask()
+        {
+            if (Status != TaskItemStatus.Started)
+                throw new TodoListException("Cannot stop task");
+            Status = TaskItemStatus.Ended;
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace TodoList.Application.TaskItems.Commands.CreateTaskItem
 
             await _context.SaveChangesAsync();
 
-            return new Response(taskItem);
+            return SuccessResponse.Create(taskItem.Id);
         }
     }
 }
