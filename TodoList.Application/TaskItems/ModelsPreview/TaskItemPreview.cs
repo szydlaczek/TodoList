@@ -6,12 +6,12 @@ namespace TodoList.Application.TaskItems.ModelsPreview
 {
     public class TaskItemPreview
     {
-        public Guid Id { get; protected set; }
-        public string Topic { get; protected set; }
-        public string Description { get; protected set; }
-        public string Category { get; protected set; }
-        public string EndDate { get; protected set; }
-        public Priority Priority { get; protected set; }
+        public Guid Id { get; set; }
+        public string Topic { get; set; }
+        public string Description { get; set; }
+        public string Category { get; set; }
+        public string EndDate { get;  set; }
+        public Priority Priority { get; set; }
 
         public static Expression<Func<TaskItem, TaskItemPreview>> Projection
         {

@@ -25,7 +25,7 @@ namespace TodoList.Api.Controllers
         public async Task<IActionResult> Get([FromQuery]GetTasksQuery query)
         {            
             var queryResult = await _mediator.Send(query);
-            return Ok(((SuccessResponse)queryResult).Data);
+            return Ok(((SuccessResponse)queryResult));
         }
         
         [HttpPost]
