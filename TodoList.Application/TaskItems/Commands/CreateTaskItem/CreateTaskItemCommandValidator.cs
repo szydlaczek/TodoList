@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FluentValidation;
 
 namespace TodoList.Application.TaskItems.Commands.CreateTaskItem
 {
-    public class CreateTaskItemCommandValidator
+    public class CreateTaskItemCommandValidator :AbstractValidator<CreateTaskItemCommand>
     {
+        public CreateTaskItemCommandValidator()
+        {
+
+        }
     }
 }

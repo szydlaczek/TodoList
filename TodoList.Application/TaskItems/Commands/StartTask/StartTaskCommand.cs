@@ -1,7 +1,5 @@
 ﻿using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using TodoList.Application.Helpers;
 
 namespace TodoList.Application.TaskItems.Commands.StartTask
@@ -12,6 +10,7 @@ namespace TodoList.Application.TaskItems.Commands.StartTask
         {
             TaskId = taskId;
         }
+
         public Guid TaskId { get; set; }
     }
 }

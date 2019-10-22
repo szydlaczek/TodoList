@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TodoList.Domain.Entities
+﻿namespace TodoList.Domain.Entities
 {
     public enum TaskItemStatus
     {

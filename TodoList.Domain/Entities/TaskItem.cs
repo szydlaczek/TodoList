@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using TodoList.Domain.Exceptions;
 
 namespace TodoList.Domain.Entities
@@ -20,7 +18,6 @@ namespace TodoList.Domain.Entities
 
         protected TaskItem()
         {
-
         }
 
         public Guid Id { get; protected set; }

@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using TodoList.Domain.Entities;
 
 namespace TodoList.Persistence
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
 
         public DbSet<TaskItem> TaskItems { get; protected set; }
 

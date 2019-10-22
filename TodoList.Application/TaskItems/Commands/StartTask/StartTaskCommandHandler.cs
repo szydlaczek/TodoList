@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,10 +12,12 @@ namespace TodoList.Application.TaskItems.Commands.StartTask
     public class StartTaskCommandHandler : IRequestHandler<StartTaskCommand, Response>
     {
         private readonly ApplicationDbContext _context;
+
         public StartTaskCommandHandler(ApplicationDbContext context)
         {
             _context = context;
-        }  
+        }
+
         public async Task<Response> Handle(StartTaskCommand request, CancellationToken cancellationToken)
         {
             var taskItem = await _context.TaskItems

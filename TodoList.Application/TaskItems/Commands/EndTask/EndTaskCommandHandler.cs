@@ -12,10 +12,12 @@ namespace TodoList.Application.TaskItems.Commands.EndTask
     public class EndTaskCommandHandler : IRequestHandler<EndTaskCommand, Response>
     {
         private readonly ApplicationDbContext _context;
+
         public EndTaskCommandHandler(ApplicationDbContext context)
         {
             _context = context;
         }
+
         public async Task<Response> Handle(EndTaskCommand request, CancellationToken cancellationToken)
         {
             var taskItem = await _context.TaskItems

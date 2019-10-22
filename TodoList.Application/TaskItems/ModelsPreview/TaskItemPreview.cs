@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using TodoList.Domain.Entities;
 
 namespace TodoList.Application.TaskItems.ModelsPreview
@@ -27,7 +25,7 @@ namespace TodoList.Application.TaskItems.ModelsPreview
                     Description = p.Description,
                     EndDate = p.EndDate.ToString("yyyy-MM-dd"),
                     Priority = p.Priority
-                };                    
+                };
             }
         }
     }

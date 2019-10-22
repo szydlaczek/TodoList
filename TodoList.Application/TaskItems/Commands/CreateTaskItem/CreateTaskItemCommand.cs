@@ -9,7 +9,7 @@ namespace TodoList.Application.TaskItems.Commands.CreateTaskItem
     public class CreateTaskItemCommand : IRequest<Response>
     {
         [JsonConstructor]
-        public CreateTaskItemCommand(string name, string surname, 
+        public CreateTaskItemCommand(string name, string surname,
             string category, string email,
             string topic, string description,
             DateTime endDate, Priority priority)

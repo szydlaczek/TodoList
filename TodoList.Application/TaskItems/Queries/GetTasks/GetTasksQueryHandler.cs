@@ -18,9 +18,10 @@ namespace TodoList.Application.TaskItems.Queries.GetTasks
         {
             _context = context;
         }
+
         public async Task<Response> Handle(GetTasksQuery request, CancellationToken cancellationToken)
         {
-            var tasks = await _context.TaskItems.AsQueryable().Filter(request).ToListAsync();            
+            var tasks = await _context.TaskItems.AsQueryable().Filter(request).ToListAsync();
 
             var result = tasks.AsQueryable().Select(TaskItemPreview.Projection).ToList();
 

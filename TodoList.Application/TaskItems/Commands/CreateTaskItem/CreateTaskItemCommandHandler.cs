@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using TodoList.Application.Helpers;
@@ -15,6 +14,7 @@ namespace TodoList.Application.TaskItems.Commands.CreateTaskItem
         {
             _context = context;
         }
+
         public async Task<Response> Handle(CreateTaskItemCommand request, CancellationToken cancellationToken)
         {
             var taskItem = request.BuildTaskItem();
