@@ -12,6 +12,7 @@ namespace TodoList.Application.TaskItems.ModelsPreview
         public string Category { get; set; }
         public string EndDate { get;  set; }
         public Priority Priority { get; set; }
+        public TaskItemStatus Status { get; set; }
 
         public static Expression<Func<TaskItem, TaskItemPreview>> Projection
         {
@@ -24,7 +25,8 @@ namespace TodoList.Application.TaskItems.ModelsPreview
                     Category = p.Category,
                     Description = p.Description,
                     EndDate = p.ExpirationDate.ToString("yyyy-MM-dd"),
-                    Priority = p.Priority
+                    Priority = p.Priority,
+                    Status = p.Status
                 };
             }
         }
