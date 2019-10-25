@@ -35,7 +35,7 @@ namespace TodoList.Api.Controllers
             return Created("Id", ((SuccessResponse)commandResult).Data);
         }
 
-        [HttpPut("{id}/Start")]
+        [HttpPut("{id}/start")]
         public async Task<IActionResult> Start(Guid id)
         {
             var command = new StartTaskCommand(id);
